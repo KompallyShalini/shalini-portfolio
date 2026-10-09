@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kompally Shalini | Student Portfolio</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f0e7;
+    color: #20251f;
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #f4f0e7;
+    border-bottom: 1px solid #d7d2c5;
+}
+
+nav {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #20251f;
+}
+
+.logo span {
+    background: #d6f36a;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #20251f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #64704b;
+}
+
+.hero {
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.tagline {
+    color: #64704b;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 75px);
+    line-height: 1.1;
+}
+
+.highlight {
+    color: #64704b;
+    font-style: italic;
+}
+
+.hero p {
+    margin-top: 22px;
+    color: #696e64;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    text-decoration: none;
+    border: 1px solid #20251f;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-dark {
+    background: #20251f;
+    color: white;
+}
+
+.btn-light {
+    color: #20251f;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.poster {
+    min-height: 390px;
+    background: #d6f36a;
+    border-radius: 48% 48% 8px 8px;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.poster h2 {
+    font-size: 100px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.poster-circle {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #64704b;
+    right: -40px;
+    bottom: 25px;
+}
+
+.poster-caption {
+    position: absolute;
+    left: 22px;
+    bottom: 18px;
+    font-weight: bold;
+    font-size: 12px;
+    z-index: 3;
+}
+
+section.content {
+    padding: 85px 0;
+    border-top: 1px solid #d7d2c5;
+}
+
+.section-title {
+    font-size: clamp(35px, 5vw, 55px);
+    margin: 10px 0 20px;
+}
+
+.section-tag {
+    color: #64704b;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.intro {
+    color: #696e64;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #fffdf7;
+    padding: 25px;
+    border: 1px solid #d7d2c5;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.card p {
+    color: #696e64;
+    font-size: 14px;
+}
+
+.details {
+    margin-top: 15px;
+}
+
+.details p {
+    padding: 10px 0;
+    border-bottom: 1px solid #d7d2c5;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.skill {
+    background: #d6f36a;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filter-btn {
+    padding: 9px 14px;
+    border: 1px solid #20251f;
+    background: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #20251f;
+    color: white;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+}
+
+.project-number {
+    background: #d6f36a;
+    padding: 18px;
+    font-size: 35px;
+    font-family: Georgia, serif;
+}
+
+.project:nth-child(2) .project-number {
+    background: #f0d2c0;
+}
+
+.project:nth-child(3) .project-number {
+    background: #d4d6ec;
+}
+
+.project:nth-child(4) .project-number {
+    background: #d8e6df;
+}
+
+.project:nth-child(5) .project-number {
+    background: #f0e2a9;
+}
+
+.project:nth-child(6) .project-number {
+    background: #e8d5e6;
+}
+
+.project-content {
+    padding-top: 18px;
+}
+
+.project-content h3 {
+    font-size: 23px;
+    margin: 8px 0;
+}
+
+.project-content p {
+    margin-bottom: 15px;
+}
+
+.project.hidden {
+    display: none;
+}
+
+.label {
+    color: #64704b;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.activities {
+    border-top: 1px solid #d7d2c5;
+}
+
+.activity {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 15px;
+    padding: 25px 0;
+    border-bottom: 1px solid #d7d2c5;
+}
+
+.activity-number {
+    color: #64704b;
+    font-size: 24px;
+}
+
+.contact {
+    background: #20251f;
+    color: white;
+    padding: 70px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact p {
+    color: #c1c5b9;
+    margin-top: 15px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.contact-links a {
+    color: #d6f36a;
+    text-decoration: none;
+}
+
+form {
+    background: #2b3029;
+    padding: 25px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin: 12px 0 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #20251f;
+    color: white;
+    border: 1px solid #53594e;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.error {
+    display: block;
+    color: #d6f36a;
+    font-size: 12px;
+}
+
+.submit {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+    background: #d6f36a;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#formMessage {
+    font-size: 13px;
+    color: #d6f36a;
+}
+
+footer {
+    background: #20251f;
+    color: #c1c5b9;
+    text-align: center;
+    padding: 22px;
+    font-size: 12px;
+    border-top: 1px solid #53594e;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: 0.6s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+    nav {
+        flex-direction: column;
+        padding: 18px 0;
+    }
+
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .poster {
+        min-height: 320px;
+    }
+
+    .grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .skills {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .poster h2 {
+        font-size: 75px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        transition: none !important;
+    }
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <a class="logo" href="#home"><span>KS</span> KOMPALLY SHALINI</a>
+        <ul>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#activities">ACTIVITIES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<section class="container hero" id="home">
+    <div class="reveal">
+        <div class="tagline">COMPUTER SCIENCE ENGINEERING STUDENT</div>
+        <h1>Learning today.<br><span class="highlight">Building</span> for<br>tomorrow.</h1>
+        <p>Hello, I'm <strong>Kompally Shalini</strong>, a fourth-year Computer Science Engineering student interested in AI, Machine Learning, and software development. I enjoy learning new technologies and exploring ideas that solve real-world problems.</p>
+        <div class="buttons">
+            <a href="#projects" class="btn btn-dark">EXPLORE PROJECTS ↗</a>
+            <a href="#contact" class="btn btn-light">CONTACT ME</a>
+        </div>
+    </div>
+
+    <div class="poster reveal">
+        <div class="poster-circle"></div>
+        <h2>KS.</h2>
+        <div class="poster-caption">COMPUTER SCIENCE<br>STUDENT · 2027</div>
+    </div>
+</section>
+
+<section class="content" id="about">
+<div class="container">
+    <div class="section-tag">01 — ABOUT ME</div>
+    <h2 class="section-title">A student with a<br><span class="highlight">builder's mindset.</span></h2>
+    <p class="intro">Curiosity first. Consistent learning. Practical problem-solving.</p>
+
+    <div class="grid">
+        <article class="card reveal">
+            <h3>Who I Am</h3>
+            <p>I am Kompally Shalini, a Computer Science Engineering student interested in software development, Artificial Intelligence, Machine Learning, and Data Science.</p>
+            <p style="margin-top:12px">I enjoy exploring technologies, understanding programming concepts, and developing project ideas that connect classroom learning with practical applications.</p>
+        </article>
+
+        <article class="card reveal">
+            <div class="section-tag">EDUCATION</div>
+            <h3>Computer Science Engineering</h3>
+            <div class="details">
+                <p><strong>College:</strong> Stanley College Of Engineering &amp; Technology For Women</p>
+                <p><strong>Academic Year:</strong> IV Year</p>
+                <p><strong>Expected Graduation:</strong> 2027</p>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<section class="content" id="skills">
+<div class="container">
+    <div class="section-tag">02 — TECHNICAL SKILLS</div>
+    <h2 class="section-title">My growing <span class="highlight">toolkit.</span></h2>
+    <p class="intro">Technologies and concepts I am learning as part of my computer science journey.</p>
+
+    <div class="skills reveal">
+        <div class="skill">Python</div>
+        <div class="skill">Java</div>
+        <div class="skill">SQL</div>
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">Data Analysis</div>
+        <div class="skill">Problem Solving</div>
+    </div>
+</div>
+</section>
+
+<section class="content" id="projects">
+<div class="container">
+    <div class="section-tag">03 — PROJECTS</div>
+    <h2 class="section-title">Ideas into <span class="highlight">experiments.</span></h2>
+    <p class="intro">These cards demonstrate how projects can be presented. Update each description and status to reflect your actual work.</p>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">ALL PROJECTS</button>
+        <button class="filter-btn" data-filter="ai">AI / DATA</button>
+        <button class="filter-btn" data-filter="web">WEB</button>
+        <button class="filter-btn" data-filter="iot">IOT</button>
+    </div>
+
+    <div class="grid">
+        <article class="card project reveal" data-category="web">
+            <div class="project-number">01</div>
+            <div class="project-content">
+                <div class="label">WEB · CONCEPT</div>
+                <h3>Scholarship Finder</h3>
+                <p>A concept for helping students explore scholarship opportunities and review eligibility information.</p>
+            </div>
+        </article>
+
+        <article class="card project reveal" data-category="ai">
+            <div class="project-number">02</div>
+            <div class="project-content">
+                <div class="label">MACHINE LEARNING</div>
+                <h3>House Price Prediction</h3>
+                <p>A learning project exploring housing data, data preprocessing, and regression models for price prediction.</p>
+            </div>
+        </article>
+
+        <article class="card project reveal" data-category="ai">
+            <div class="project-number">03</div>
+            <div class="project-content">
+                <div class="label">NLP · CLASSIFICATION</div>
+                <h3>SMS Spam Detector</h3>
+                <p>A text-classification concept for distinguishing spam messages from legitimate messages.</p>
+            </div>
+        </article>
+
+        <article class="card project reveal" data-category="iot">
+            <div class="project-number">04</div>
+            <div class="project-content">
+                <div class="label">IOT · SENSORS</div>
+                <h3>Flood Monitoring</h3>
+                <p>A concept using sensor data to monitor water levels and support early flood awareness.</p>
+            </div>
+        </article>
+
+        <article class="card project reveal" data-category="ai">
+            <div class="project-number">05</div>
+            <div class="project-content">
+                <div class="label">AI · NETWORKING</div>
+                <h3>Internet Outage Prediction</h3>
+                <p>A proposed system for identifying unusual network behavior and estimating possible service interruptions.</p>
+            </div>
+        </article>
+
+        <article class="card project reveal" data-category="web">
+            <div class="project-number">06</div>
+            <div class="project-content">
+                <div class="label">FRONTEND DEVELOPMENT</div>
+                <h3>Student Portfolio</h3>
+                <p>A responsive personal website introducing a student, presenting skills, and displaying selected projects.</p>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<section class="content" id="activities">
+<div class="container">
+    <div class="section-tag">04 — ACTIVITIES &amp; LEARNING</div>
+    <h2 class="section-title">Beyond the <span class="highlight">classroom.</span></h2>
+    <p class="intro">Add your verified workshops, hackathons, certifications, and college activities in this section.</p>
+
+    <div class="activities">
+        <article class="activity reveal">
+            <div class="activity-number">01</div>
+            <div>
+                <h3>Technical Workshops</h3>
+                <p>Include workshops or bootcamps you attended, the technologies covered, and the practical skills you gained.</p>
+            </div>
+        </article>
+
+        <article class="activity reveal">
+            <div class="activity-number">02</div>
+            <div>
+                <h3>Competitions and Hackathons</h3>
+                <p>Describe your role, the problem you worked on, your team contribution, and any results or recognition.</p>
+            </div>
+        </article>
+
+        <article class="activity reveal">
+            <div class="activity-number">03</div>
+            <div>
+                <h3>Certifications</h3>
+                <p>Add relevant courses and certificates with the issuing organization and completion date.</p>
+            </div>
+        </article>
+    </div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+    <div class="section-tag" style="color:#d6f36a">05 — CONTACT</div>
+    <h2 class="section-title" style="color:white">Let's start a <span style="color:#d6f36a">conversation.</span></h2>
+
+    <div class="contact-grid">
+        <div>
+            <h3 style="font-size:28px">Kompally Shalini</h3>
+            <p>IV Year Computer Science Engineering student at Stanley College Of Engineering &amp; Technology For Women.</p>
+
+            <div class="contact-links">
+                <a href="https://github.com/KompallyShalini" target="_blank" rel="noopener">GITHUB ↗</a>
+                <a href="https://www.linkedin.com/in/shalini-reddy" target="_blank" rel="noopener">LINKEDIN ↗</a>
+                <a href="mailto:shalinireddie03@gmail.com">EMAIL ↗</a>
+            </div>
+
+            <p>Email: shalinireddie03@gmail.com</p>
+        </div>
+
+        <form id="contactForm" novalidate>
+            <div>
+                <label for="name">YOUR NAME</label>
+                <input id="name" type="text" placeholder="Enter your name">
+                <small class="error"></small>
+            </div>
+
+            <div>
+                <label for="email">EMAIL ADDRESS</label>
+                <input id="email" type="email" placeholder="Enter your email">
+                <small class="error"></small>
+            </div>
+
+            <div>
+                <label for="message">MESSAGE</label>
+                <textarea id="message" rows="4" placeholder="Write your message"></textarea>
+                <small class="error"></small>
+            </div>
+
+            <button type="submit" class="submit">VALIDATE MESSAGE ↗</button>
+            <p id="formMessage"></p>
+            <p style="font-size:11px">This demo validates the form but does not send messages.</p>
+        </form>
+    </div>
+</div>
+</section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Kompally Shalini | Student Portfolio</p>
+</footer>
+
+<script>
+// Mobile-friendly navigation links are handled with normal page anchors.
+
+// Project category filtering
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
+
+filterButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        filterButtons.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        const category = button.dataset.filter;
+
+        projects.forEach(function(project) {
+            if (category === "all" || project.dataset.category === category) {
+                project.classList.remove("hidden");
+            } else {
+                project.classList.add("hidden");
+            }
+        });
+    });
+});
+
+// Reveal elements as they enter the screen
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach(function(item) {
+        observer.observe(item);
+    });
+} else {
+    revealItems.forEach(function(item) {
+        item.classList.add("show");
+    });
+}
+
+// Contact form validation
+const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+
+function validateField(field) {
+    const value = field.value.trim();
+    let error = "";
+
+    if (field.id === "name" && value.length < 2) {
+        error = "Please enter at least 2 characters.";
+    }
+
+    if (field.id === "email" &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        error = "Please enter a valid email address.";
+    }
+
+    if (field.id === "message" && value.length < 10) {
+        error = "Please enter at least 10 characters.";
+    }
+
+    field.nextElementSibling.textContent = error;
+    return error === "";
+}
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const fields = [
+        document.getElementById("name"),
+        document.getElementById("email"),
+        document.getElementById("message")
+    ];
+
+    let isValid = true;
+
+    fields.forEach(function(field) {
+        if (!validateField(field)) {
+            isValid = false;
+        }
+    });
+
+    if (isValid) {
+        formMessage.textContent =
+            "Validation successful! This demo does not send your message.";
+    } else {
+        formMessage.textContent =
+            "Please correct the errors above and try again.";
+    }
+});
+
+// Update the copyright year
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
